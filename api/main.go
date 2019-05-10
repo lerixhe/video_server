@@ -11,6 +11,7 @@ func RegisterHandlers() (router *httprouter.Router) {
 	router = httprouter.New()
 	router.POST("/user", CreateUser)
 	router.POST("/user/:user_name", Login)
+	//router.POST("/user/:user_name/videos/:video_name", AddVideo)
 	return
 }
 
