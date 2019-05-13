@@ -1,10 +1,9 @@
 package main
 
 import (
+	"github.com/julienschmidt/httprouter"
 	"io"
 	"net/http"
-
-	"github.com/julienschmidt/httprouter"
 )
 
 //CreateUser 创建用户
