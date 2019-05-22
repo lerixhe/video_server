@@ -19,3 +19,7 @@ type CommentInfo struct {
 	AuthorName string //数据表中存的author_id，代码结构中使用name
 	Content    string
 }
+type SimpleSession struct {
+	UserName string
+	TTL      int64 //time to live 过期时间
+}
