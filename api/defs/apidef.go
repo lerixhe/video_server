@@ -1,12 +1,18 @@
 package defs
 
-//requests
-// 用户凭证
+//requests:用户凭证
 type UserCredential struct {
 	Name string `json:"user_name"`
 	Pwd  string `json:"pwd"`
 }
 
+//reponse:注册成功
+type SignedUp struct {
+	Success   bool   `json:"success"`
+	SessionId string `json:"session_id"`
+}
+
+// Data Model
 type VideoInfo struct {
 	Id          string
 	AuthorId    int

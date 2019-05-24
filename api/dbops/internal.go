@@ -1,3 +1,4 @@
+// Package dbops 本文件从属于dbops包，但专门定义session相关的内部基础操作
 package dbops
 
 import (
@@ -8,7 +9,7 @@ import (
 	"video_server/api/defs"
 )
 
-//写入session
+//写入session到数据库
 func InserSession(sid string, ttl int64, uname string) error {
 	ttlstr := strconv.FormatInt(ttl, 10)
 	stmtIns, err := db.Prepare("insert into sessions (session_id,ttl,login_name)values(?,?,?)")
@@ -76,6 +77,8 @@ func RetrieveAllSessions() (*sync.Map, error) {
 	}
 	return m, nil
 }
+
+// 删除某个session，通过id,从数据库中
 func DeleteSession(sid string) error {
 	stmtOut, err := db.Prepare("delete from sessions where session_id=?")
 	if err != nil {

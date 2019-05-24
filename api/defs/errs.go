@@ -16,4 +16,6 @@ type ErroResponse struct {
 var (
 	ErrRequestBodyParseFailed = ErroResponse{HttpSC: 400, Error: Err{Error: "Request Body Is Not Correct!", ErrorCode: "001"}}
 	ErrNotAuthUser            = ErroResponse{HttpSC: 401, Error: Err{Error: "User Authentication Failed!", ErrorCode: "002"}}
+	ErrDBError                = ErroResponse{500, Err{"DB ops failed", "003"}}
+	ErrInternalFaults         = ErroResponse{500, Err{"Internal service faults", "004"}}
 )
