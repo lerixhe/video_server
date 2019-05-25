@@ -9,7 +9,7 @@ func AddVideoDeletionRecord(vid string) error {
 	}
 	_, err = stmtIns.Exec(vid)
 	if err != nil {
-		log.Printf("addvideodelectionrecord error:", err)
+		log.Println("addvideodelectionrecord error:", err)
 		return err
 	}
 	defer stmtIns.Close()
