@@ -58,10 +58,7 @@ func DeleteUser(loginname string, pwd string) error {
 //添加视频,返回一个视频对象，同时写入数据库
 func AddVideo(authorId int, name string) (*defs.VideoInfo, error) {
 	video := defs.VideoInfo{AuthorId: authorId, Name: name}
-	uuid, err := uuid.NewV4()
-	if err != nil {
-		return nil, err
-	}
+	uuid := uuid.NewV4()
 	video.Id = uuid.String()
 	video.DisplayTime = time.Now().Format("2006-01-02 15:04:05")
 	//写入数据库
@@ -87,7 +84,7 @@ func DeleteVideo(videoId string) error {
 
 //添加评论
 func AddComment(videoId string, authorId int, content string) error {
-	uuid, err := uuid.NewV4()
+	uuid := uuid.NewV4()
 	commentId := uuid.String()
 	//comment := defs.CommentInfo{Id: commentId, VideoId: videoId, AuthorId: authorId, Content: content}
 	stmtadd, err := db.Prepare("insert into comments (id,video_id,author_id,content)values(?,?,?,?)")

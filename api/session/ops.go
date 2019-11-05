@@ -46,10 +46,7 @@ func LoadSessionsFromDB() {
 // 为用户生产新session，并返回session id
 func GenerateNewSessionId(un string) string {
 	//生产uuid
-	id, err := uuid.NewV4()
-	if err != nil {
-		return ""
-	}
+	id := uuid.NewV4()
 	sessionID := id.String()
 	ttl := nowInMilli() + ttlduring
 	ss := &defs.SimpleSession{un, ttl}
